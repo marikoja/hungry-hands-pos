@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
   welcomeContainer: {
     marginTop: 50,
     flexDirection: 'column',
-    justifyContent: 'space-between',
   },
   header: {
     // flex: 1,
