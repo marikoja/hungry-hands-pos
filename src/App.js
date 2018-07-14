@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
 
 import Welcome from './components/Welcome';
 import VendorMenu from './components/VendorMenu';
 import Menu from './components/Menu';
+import CustomerViewItem from './components/CustomerViewItem';
 
 export default class App extends Component {
   render() {
@@ -22,6 +23,12 @@ export default class App extends Component {
           key='customerMenu'
           component={Menu}
           title="Menu"
+          />
+
+          <Scene
+          key='customerViewItem'
+          component={CustomerViewItem}
+          title="MenuItem"
           />
 
           <Scene

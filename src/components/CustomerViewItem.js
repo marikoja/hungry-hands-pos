@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default class CustomerViewItem extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+
+  }
   render() {
     return (
-      //TODO pull data from database/api for product descriptions
+
       <View style={styles.container}>
-        <Text style={styles.title}>This is a POS</Text>
-        <TouchableOpacity onPress={this.props.onBack}>
-          <Text style={styles.backButton}>Back</Text>
-        </TouchableOpacity>
-        <Text style={styles.name}>This is a sandwich</Text>
-        <View style={styles.details}>
-          <Image source={{ uri: 'https://media.giphy.com/media/c9HEjwpjrRnQA/giphy.gif' }}
-          style={styles.image} />
-          <View style={styles.detailNav}>
-            <Text style={styles.price}>$10.00</Text>
-            <TouchableOpacity onPress={this.props.onAdd}>
-              <Text style={styles.addButton}>Add to Order</Text>
-            </TouchableOpacity>
+        <View style={styles.item}>
+          <View style={styles.nameAndPrice}>
+            <Text style={styles.name}>{ this.props.name }</Text>
+            <Text style={styles.price}>$ {this.props.price}</Text>
           </View>
+
+          <Image style={styles.image}  key={this.props.index} source={{uri: this.props.img}}/>
+
+          <Text style={styles.description}>{this.props.description}</Text>
+
+          <TouchableOpacity onPress={this.props.onAdd}>
+            <Text style={styles.addButton}>Add to Order</Text>
+          </TouchableOpacity>
         </View>
 
-        <Text style={styles.description}>I am a sandwich, buy and eat me.</Text>
       </View>
+
     );
   }
 }
@@ -33,58 +41,50 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     width: '100%',
+    height: '100%',
     margin: 10,
     padding: 30,
   },
-  // navBar: {
-  //   flexDirection: 'row',
-  //   // justifyContent: 'space-between',
-  //   marginTop: 30,
-  //   marginBottom: 10,
-  //   fontWeight: 'bold',
-  //   // width: 100,
-  //   // borderWidth: 2,
-  //   // textAlign: 'left',
-  // },
-  backButton: {
-    // flex: 1,
-  //   justifyContent: 'flex-start',
-  //   marginTop: 30,
+  item: {
+    flex: 1,
+    borderWidth: 2,
   },
-  title: {
-    fontSize: 30,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    marginTop: 10,
+  nameAndPrice: {
+    flex: .5,
+    flexDirection: 'row',
+    paddingVertical: 10,
+    justifyContent: 'space-around',
   },
   name: {
-    marginTop: 30,
-    marginBottom: 10,
+    flex: 1,
+    fontSize: 20,
     fontWeight: 'bold',
+    textAlign: 'center',
     width: 300,
-    textAlign: 'left',
-  },
-  image: {
-    height: 200,
-    width: 400,
-    borderRadius: 15,
-    marginBottom: 10,
-  },
-  details: {
-    flexDirection: 'row',
-  },
-  detailNav: {
-    marginLeft: 25,
   },
   price: {
+    flex: 1,
+    textAlign: 'center',
     fontSize: 20,
   },
+  image: {
+    flex: 3,
+    height: 100,
+    width: 200,
+    borderRadius: 15,
+    marginBottom: 10,
+    borderWidth: 2,
+    // justifyContent: 'center',
+  },
+
+
   addButton: {
     marginTop: 10,
     fontSize: 20,
     padding: 5,
     borderWidth: 1,
     borderRadius: 15,
+    textAlign: 'center',
   }
 
 });

@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
+    "clean": "react-native-clean-project",
     "run-pos": "react-native run-ios --simulator \"iPad ${1:-Air 2}\""
   },
   "dependencies": {
