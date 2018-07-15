@@ -9,8 +9,8 @@ export default class CustomerViewItem extends Component {
     description: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-
   }
+
   render() {
     return (
 
@@ -19,9 +19,11 @@ export default class CustomerViewItem extends Component {
           <View style={styles.nameAndPrice}>
             <Text style={styles.name}>{ this.props.name }</Text>
             <Text style={styles.price}>$ {this.props.price}</Text>
-          </View>
 
-          <Image style={styles.image}  key={this.props.index} source={{uri: this.props.img}}/>
+          </View>
+          <TouchableOpacity onPress={this.props.onAdd} style={styles.pressableImage}>
+            <Image style={styles.image}  key={this.props.index} source={{uri: this.props.img}}/>
+          </TouchableOpacity>
 
           <Text style={styles.description}>{this.props.description}</Text>
 
@@ -37,6 +39,11 @@ export default class CustomerViewItem extends Component {
 }
 
 const styles = StyleSheet.create({
+  testing: {
+    borderColor: '#C492B1',
+    borderWidth: 2,
+    height: 30,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -67,6 +74,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
   },
+  pressableImage: {
+    height: 150,
+  },
   image: {
     flex: 3,
     height: 100,
@@ -76,7 +86,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     // justifyContent: 'center',
   },
-
 
   addButton: {
     marginTop: 10,

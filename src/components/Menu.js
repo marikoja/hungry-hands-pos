@@ -16,7 +16,7 @@ export default class Menu extends Component {
   componentDidMount = () => {
     console.log('Component did mount was called');
 
-    axios.get('http://localhost:4567/menu/1')
+    axios.get('https://capstone-backend-java-spark.herokuapp.com/menu/1')
       .then( (response) => {
         console.log(response);
         this.setState({menu: response.data});
