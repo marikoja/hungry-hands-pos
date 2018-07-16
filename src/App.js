@@ -5,7 +5,8 @@ import { Router, Scene } from 'react-native-router-flux';
 import Welcome from './components/Welcome';
 import VendorMenu from './components/VendorMenu';
 import Menu from './components/Menu';
-import CustomerViewItem from './components/CustomerViewItem';
+import MenuItem from './components/MenuItem';
+import ViewSingleItem from './components/ViewSingleItem'
 
 export default class App extends Component {
   render() {
@@ -26,8 +27,8 @@ export default class App extends Component {
           />
 
           <Scene
-          key='customerViewItem'
-          component={CustomerViewItem}
+          key='menuItem'
+          component={MenuItem}
           title="MenuItem"
           />
 
@@ -35,6 +36,12 @@ export default class App extends Component {
           key='vendorMenu'
           component={VendorMenu}
           title="Vendor Menu"
+          />
+
+          <Scene
+          key='viewSingleItem'
+          component={ViewSingleItem}
+          title="Item Details"
           />
 
       </Scene>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet} from 'react-native';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import CustomerViewItem from './CustomerViewItem';
+import MenuItem from './MenuItem';
 
 export default class Menu extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ export default class Menu extends Component {
   renderMenuItems = () => {
     const menuList = this.state.menu.map((item, index) => {
       return (
-        <CustomerViewItem
+        <MenuItem
           key={index}
           name={item.name}
           description={item.description}

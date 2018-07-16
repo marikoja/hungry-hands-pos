@@ -1,15 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { Actions } from 'react-native-router-flux';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import ViewSingleItem from './ViewSingleItem'
 
-export default class CustomerViewItem extends Component {
+export default class MenuItem extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+  };
+
+  constructor(props) {
+    super(props);
   }
+
+  renderSingleItem = (itemData) => {
+    return (
+      <ViewSingleItem
+        name={itemData.name}
+        description={itemData.description}
+        menu_item_id={itemData.menu_item_id}
+        price={itemData.price}
+        img={itemData.img}
+        add={()=>{}}
+        />
+      );
+  }
+
 
   render() {
     return (
@@ -17,19 +34,15 @@ export default class CustomerViewItem extends Component {
       <View style={styles.container}>
         <View style={styles.item}>
           <View style={styles.nameAndPrice}>
-            <Text style={styles.name}>{ this.props.name }</Text>
-            <Text style={styles.price}>$ {this.props.price}</Text>
+            <Text style={styles.name}>{this.props.name}</Text>
+            <Text style={styles.price}>${this.props.price}</Text>
 
           </View>
-          <TouchableOpacity onPress={this.props.onAdd} style={styles.pressableImage}>
+          <TouchableOpacity style={styles.pressableImage} onPress={() => Actions.viewSingleItem(this.props)}  >
             <Image style={styles.image}  key={this.props.index} source={{uri: this.props.img}}/>
+
           </TouchableOpacity>
 
-          <Text style={styles.description}>{this.props.description}</Text>
-
-          <TouchableOpacity onPress={this.props.onAdd}>
-            <Text style={styles.addButton}>Add to Order</Text>
-          </TouchableOpacity>
         </View>
 
       </View>
