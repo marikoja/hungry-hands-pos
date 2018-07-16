@@ -68,9 +68,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  list: {
-    backgroundColor: '#eee',
-    width: '100%',
-    paddingHorizontal: 10,
-  },
+
 });
