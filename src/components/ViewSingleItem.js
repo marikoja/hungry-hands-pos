@@ -17,7 +17,7 @@ export default class ViewSingleItem extends Component {
       <View style={styles.container}>
         <View style={styles.item}>
           <Image style={styles.image}  key={this.props.index} source={{uri: this.props.img}}/>
-          <View style={styles.itemDetials}>
+          <View style={styles.itemDetails}>
             <Text style={styles.name}>{this.props.itemName}</Text>
             <Text style={styles.price}>$ {this.props.price}</Text>
             <Text style={styles.description}>{this.props.description}</Text>
@@ -39,10 +39,10 @@ const styles = StyleSheet.create({
 
   },
   item: {
-    flex: 1,
+    // flex: 1,
     margin: 10,
     padding: 30,
-    flexDirection: 'row',
+    // flexDirection: 'row',
   },
   // nameAndPrice: {
   //   // flex: .5,
@@ -50,30 +50,29 @@ const styles = StyleSheet.create({
   //   paddingVertical: 10,
   //   // justifyContent: 'space-around',
   // },
-  name: {
-    flex: 1,
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  price: {
-    flex: 1,
-    textAlign: 'center',
-    fontSize: 20,
-  },
-
   image: {
-    flex: 3,
-    height: 100,
-    width: 200,
+    height: 200,
+    width: 400,
     borderRadius: 15,
     marginBottom: 10,
     borderWidth: 2,
-    // justifyContent: 'center',
   },
-
+  name: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'left',
+  },
+  price: {
+    textAlign: 'left',
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  description: {
+    fontSize: 16,
+  },
   addButton: {
-    marginTop: 10,
+    marginVertical: 10,
+    marginHorizontal: 30,
     fontSize: 20,
     padding: 5,
     borderWidth: 1,
