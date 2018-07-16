@@ -31,7 +31,7 @@ export default class Menu extends Component {
       return (
         <MenuItem
           key={index}
-          name={item.name}
+          itemName={item.name}
           description={item.description}
           menu_item_id={item.menu_item_id}
           price={item.price}

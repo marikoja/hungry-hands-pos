@@ -6,7 +6,7 @@ import ViewSingleItem from './ViewSingleItem'
 
 export default class MenuItem extends Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
+    itemName: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
   };
 
@@ -14,27 +14,12 @@ export default class MenuItem extends Component {
     super(props);
   }
 
-  renderSingleItem = (itemData) => {
-    return (
-      <ViewSingleItem
-        name={itemData.name}
-        description={itemData.description}
-        menu_item_id={itemData.menu_item_id}
-        price={itemData.price}
-        img={itemData.img}
-        add={()=>{}}
-        />
-      );
-  }
-
-
   render() {
     return (
-
       <View style={styles.container}>
         <View style={styles.item}>
           <View style={styles.nameAndPrice}>
-            <Text style={styles.name}>{this.props.name}</Text>
+            <Text style={styles.name}>{this.props.itemName}</Text>
             <Text style={styles.price}>${this.props.price}</Text>
           </View>
           <TouchableOpacity style={styles.pressableImage} onPress={() => Actions.viewSingleItem(this.props)}  >
@@ -42,7 +27,6 @@ export default class MenuItem extends Component {
           </TouchableOpacity>
         </View>
       </View>
-
     );
   }
 }

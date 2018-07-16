@@ -16,19 +16,16 @@ export default class ViewSingleItem extends Component {
 
       <View style={styles.container}>
         <View style={styles.item}>
-          <View style={styles.nameAndPrice}>
-            <Text style={styles.name}>{ this.props.name }</Text>
-            <Text style={styles.price}>$ {this.props.price}</Text>
-          </View>
           <Image style={styles.image}  key={this.props.index} source={{uri: this.props.img}}/>
-
-          <Text style={styles.description}>Hello</Text>
-
-          <TouchableOpacity onPress={this.props.onAdd}>
-            <Text style={styles.addButton}>Add to Order</Text>
-          </TouchableOpacity>
+          <View style={styles.itemDetials}>
+            <Text style={styles.name}>{this.props.itemName}</Text>
+            <Text style={styles.price}>$ {this.props.price}</Text>
+            <Text style={styles.description}>{this.props.description}</Text>
+          </View>
         </View>
-
+        <TouchableOpacity onPress={this.props.onAdd}>
+          <Text style={styles.addButton}>Add to Order</Text>
+        </TouchableOpacity>
       </View>
 
     );
@@ -36,44 +33,35 @@ export default class ViewSingleItem extends Component {
 }
 
 const styles = StyleSheet.create({
-  testing: {
-    borderColor: '#C492B1',
-    borderWidth: 2,
-    height: 30,
-  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    width: '100%',
-    height: '100%',
-    margin: 10,
-    padding: 30,
+
   },
   item: {
     flex: 1,
-    borderWidth: 2,
-  },
-  nameAndPrice: {
-    flex: .5,
+    margin: 10,
+    padding: 30,
     flexDirection: 'row',
-    paddingVertical: 10,
-    justifyContent: 'space-around',
   },
+  // nameAndPrice: {
+  //   // flex: .5,
+  //   flexDirection: 'row',
+  //   paddingVertical: 10,
+  //   // justifyContent: 'space-around',
+  // },
   name: {
     flex: 1,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
-    width: 300,
   },
   price: {
     flex: 1,
     textAlign: 'center',
     fontSize: 20,
   },
-  pressableImage: {
-    height: 150,
-  },
+
   image: {
     flex: 3,
     height: 100,
