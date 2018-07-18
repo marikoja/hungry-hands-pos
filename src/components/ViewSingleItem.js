@@ -26,25 +26,31 @@ export default class ViewSingleItem extends Component {
     if (this.props.menu.state.order_id == null) {
       console.log("CREATE NEW ORDER")
       this.props.menu.createNewOrder().then(() => {
-        console.log(this.props.menu.state.orderId);
       });
-    } 
+    } else {
+      console.log("ADDING ITEM ORDER")
+      console.log(this.props.menu.state.order_id);
+      this.addItemToOrder()
+    }
+  }
+  
+  addItemToOrder = () => {
+    let newCartCount = this.props.menu.state.numInCart + 1;
+    this.props.menu.setState({numInCart: newCartCount});
+    console.log(this.props.menu.state.numInCart);
 
-    // let newCartCount = this.props.menu.state.numInCart + 1;
-    // this.props.menu.setState({numInCart: newCartCount});
-    // console.log(this.props.menu.state.numInCart);
-    //
-    // axios.post('https://capstone-backend-java-spark.herokuapp.com/order/menu_item',
-    //   { menu_item_id: this.props.index ,
-    //     quantity: this.props.quantity,
-    //   }).then((response) => {
-    //     console.log("GOOD");
-    //   })
-    //   .catch((error) => {
-    //     console.log("ERROR");
-    //     console.log(error);
-    //   }
-    // );
+    axios.post(`https://capstone-backend-java-spark.herokuapp.com/order/${this.props.menu.state.order_id}`,
+      { menu_item_id: this.props.index ,
+        quantity: 1,
+      }).then((response) => {
+        console.log("GOOD addItemToOrder request");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("ERROR addItemToOrder request");
+        console.log(error);
+      }
+    );
   }
 
   render() {

@@ -17,10 +17,6 @@ export default class MenuItem extends Component {
     this.state = {};
   }
 
-  componentDidMount = () => {
-    //this.checkForOrderId()
-  };
-
   render() {
     return (
       <View style={styles.container}>
