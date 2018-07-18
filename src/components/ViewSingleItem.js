@@ -23,24 +23,25 @@ export default class ViewSingleItem extends Component {
 }
 
   onAdd = () => {
-    if (this.props.menu.state.order_id == null) {
+    if (this.props.menu.state.orderId == null) {
       console.log("CREATE NEW ORDER")
       this.props.menu.createNewOrder().then(() => {
+        this.addItemToOrder()
       });
     } else {
       console.log("ADDING ITEM ORDER")
-      console.log(this.props.menu.state.order_id);
+      console.log(this.props.menu.state.orderId);
       this.addItemToOrder()
     }
   }
-  
+
   addItemToOrder = () => {
     let newCartCount = this.props.menu.state.numInCart + 1;
     this.props.menu.setState({numInCart: newCartCount});
     console.log(this.props.menu.state.numInCart);
-
-    axios.post(`https://capstone-backend-java-spark.herokuapp.com/order/${this.props.menu.state.order_id}`,
-      { menu_item_id: this.props.index ,
+    console.log(`https://capstone-backend-java-spark.herokuapp.com/order/${this.props.menu.state.orderId}`);
+    axios.post(`https://capstone-backend-java-spark.herokuapp.com/order/${this.props.menu.state.orderId}`,
+      { menu_item_id: this.props.menu_item_id ,
         quantity: 1,
       }).then((response) => {
         console.log("GOOD addItemToOrder request");
