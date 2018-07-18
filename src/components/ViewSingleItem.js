@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
@@ -9,6 +10,41 @@ export default class ViewSingleItem extends Component {
     description: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    menu_item_id: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired
+  }
+
+  constructor(props) {
+  super(props);
+
+  this.state = {
+    orders: [],
+  };
+}
+
+  onAdd = () => {
+    if (this.props.menu.state.order_id == null) {
+      console.log("CREATE NEW ORDER")
+      this.props.menu.createNewOrder().then(() => {
+        console.log(this.props.menu.state.orderId);
+      });
+    } 
+
+    // let newCartCount = this.props.menu.state.numInCart + 1;
+    // this.props.menu.setState({numInCart: newCartCount});
+    // console.log(this.props.menu.state.numInCart);
+    //
+    // axios.post('https://capstone-backend-java-spark.herokuapp.com/order/menu_item',
+    //   { menu_item_id: this.props.index ,
+    //     quantity: this.props.quantity,
+    //   }).then((response) => {
+    //     console.log("GOOD");
+    //   })
+    //   .catch((error) => {
+    //     console.log("ERROR");
+    //     console.log(error);
+    //   }
+    // );
   }
 
   render() {
@@ -23,7 +59,7 @@ export default class ViewSingleItem extends Component {
             <Text style={styles.description}>{this.props.description}</Text>
           </View>
         </View>
-        <TouchableOpacity onPress={this.props.onAdd}>
+        <TouchableOpacity onPress={this.onAdd}>
           <Text style={styles.addButton}>Add to Order</Text>
         </TouchableOpacity>
       </View>

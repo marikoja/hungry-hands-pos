@@ -2,17 +2,24 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import ViewSingleItem from './ViewSingleItem'
+import Menu from './Menu'
 
 export default class MenuItem extends Component {
   static propTypes = {
     itemName: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    menu: PropTypes.object.isRequired,
   };
 
   constructor(props) {
     super(props);
+
+    this.state = {};
   }
+
+  componentDidMount = () => {
+    //this.checkForOrderId()
+  };
 
   render() {
     return (

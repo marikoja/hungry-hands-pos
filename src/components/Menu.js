@@ -5,20 +5,24 @@ import PropTypes from 'prop-types';
 import MenuItem from './MenuItem';
 
 export default class Menu extends Component {
-  constructor(props) {
-  super(props);
+  static propTypes = {
+    // items: PropTypes.array.isRequired,
+    // onItemPress: PropTypes.func.isRequired,
+  }
 
-  this.state = {
-    menu: [],
-  };
-}
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      menu: [],
+      orderId: null,
+      numInCart: null
+    };
+  }
 
   componentDidMount = () => {
-    console.log('Component did mount was called');
-
-    axios.get('https://capstone-backend-java-spark.herokuapp.com/menu/1')
+    axios.get('https://capstone-backend-java-spark.herokuapp.com/menu')
       .then( (response) => {
-        console.log(response);
         this.setState({menu: response.data});
     })
       .catch( (error) => {
@@ -26,7 +30,19 @@ export default class Menu extends Component {
     });
   }
 
+   createNewOrder = () => {
+    return axios.post('https://capstone-backend-java-spark.herokuapp.com/order', {status: 'pending', customer_id: '1'})
+      .then((response) => {
+        console.log(response);
+        this.setState({orderId:response.data[0].order_id});
+    })
+      .catch( (error) => {
+        console.log(error);
+    });
+  }
+
   renderMenuItems = () => {
+    let parent = this;
     const menuList = this.state.menu.map((item, index) => {
       return (
         <MenuItem
@@ -36,6 +52,8 @@ export default class Menu extends Component {
           menu_item_id={item.menu_item_id}
           price={item.price}
           img={item.img}
+          quantity={item.quantity}
+          menu={parent}
           add={()=>{}}
           />
       );
