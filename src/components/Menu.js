@@ -49,6 +49,7 @@ export default class Menu extends Component {
           key={index}
           itemName={item.name}
           description={item.description}
+          menu_id={item.menu_id}
           menu_item_id={item.menu_item_id}
           price={item.price}
           img={item.img}

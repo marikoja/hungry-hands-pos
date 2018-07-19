@@ -38,7 +38,7 @@ export default class VendorViewSingleItem extends Component {
             <Text style={styles.description}>{this.props.description}</Text>
           </View>
         </View>
-        <TouchableOpacity onPress={Actions.editItem(this.props)}>
+        <TouchableOpacity onPress={() => Actions.editItem(this.props)}>
           <Text style={styles.addButton}>Edit Menu Item</Text>
         </TouchableOpacity>
       </View>

@@ -24,15 +24,13 @@ export default class MyComponent extends Component {
   }
 
   editMenuItem = () => {
-    console.log(JSON.stringify({
-      state: this.state
-    }));
-    axios.post(`https://capstone-backend-java-spark.herokuapp.com/menu/${props.menu_id}/menu_item`,
-      { itemNamename: props.itemName ,
-        price: props.price,
-        description: props.description,
-        quantity: props.quantity,
-        img: props.img,
+    axios.put(`https://capstone-backend-java-spark.herokuapp.com/menu/
+      ${this.props.menu_id}/menu_item/${this.props.menu_item_id}`,
+      { itemNamename: this.props.itemName ,
+        price: this.props.price,
+        description: this.props.description,
+        quantity: this.props.quantity,
+        img: this.props.img,
       }).then((response) => {
         console.log("GOOD edit Menu Item request");
         console.log(response);
