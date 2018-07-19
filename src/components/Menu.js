@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, StyleSheet} from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text} from 'react-native';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { Actions } from 'react-native-router-flux';
 import MenuItem from './MenuItem';
 
 export default class Menu extends Component {
@@ -68,6 +69,9 @@ export default class Menu extends Component {
         <View style={styles.itemsContainer}>
           {this.renderMenuItems()}
         </View>
+        <TouchableOpacity onPress={Actions.cart}>
+          <Text style={styles.button}>View Cart</Text>
+        </TouchableOpacity>
       </View>
     );
   }
