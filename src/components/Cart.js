@@ -15,14 +15,14 @@ export default class Cart extends Component {
     super(props);
 
     this.state = {
-      menu: [],
+      order: [],
     };
   }
 
   componentDidMount = () => {
     axios.get('https://capstone-backend-java-spark.herokuapp.com/order')
       .then( (response) => {
-        this.setState({menu: response.data});
+        this.setState({order: response.data});
     })
       .catch( (error) => {
         console.log(error);
@@ -31,20 +31,19 @@ export default class Cart extends Component {
 
   renderOrderItems = () => {
     let parent = this;
-    const menuList = this.state.menu.map((item, index) => {
+    const orderList = this.state.order.map((item, index) => {
       return (
-        <OrderItem
+        <OrderItems
           key={index}
-          itemName={item.name}
-          menu_id={item.menu_id}
+          order_menu_id={item.order_menu_id}
           menu_item_id={item.menu_item_id}
-          price={item.price}
           quantity={item.quantity}
-          menu={parent}
+          order_id={item.order_id}
+          order={parent}
           />
       );
     });
-    return menuList;
+    return orderList;
   }
 
 

@@ -33,6 +33,7 @@ export default class MyComponent extends Component {
     img: this.state.img,
     menu_id: this.state.menu_id,
     menu_item_id: this.state.menu_item_id}
+
     // console.log( body );
     // console.log( url );
 
