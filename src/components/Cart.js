@@ -3,9 +3,9 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
-import VendorMenuItem from './VendorMenuItem'
+import OrderItems from './OrderItems'
 
-export default class VendorMenu extends Component {
+export default class Cart extends Component {
   static propTypes = {
     // items: PropTypes.array.isRequired,
     // onItemPress: PropTypes.func.isRequired,
@@ -20,7 +20,7 @@ export default class VendorMenu extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('https://capstone-backend-java-spark.herokuapp.com/menu')
+    axios.get('https://capstone-backend-java-spark.herokuapp.com/order')
       .then( (response) => {
         this.setState({menu: response.data});
     })
@@ -29,21 +29,18 @@ export default class VendorMenu extends Component {
     });
   }
 
-  renderVendorMenuItems = () => {
+  renderOrderItems = () => {
     let parent = this;
     const menuList = this.state.menu.map((item, index) => {
       return (
-        <VendorMenuItem
+        <OrderItem
           key={index}
           itemName={item.name}
           menu_id={item.menu_id}
-          description={item.description}
           menu_item_id={item.menu_item_id}
           price={item.price}
-          img={item.img}
           quantity={item.quantity}
           menu={parent}
-          add={()=>{}}
           />
       );
     });
@@ -56,10 +53,10 @@ export default class VendorMenu extends Component {
       <View style={styles.container}>
 
         <View style={styles.itemsContainer}>
-          {this.renderVendorMenuItems()}
+          {this.renderOrdertems()}
         </View>
-        <TouchableOpacity onPress={() => Actions.newItem()}>
-          <Text style={styles.button}>Add Item to Menu</Text>
+        <TouchableOpacity onPress={() => Actions.customerMenu()}>
+          <Text style={styles.button}>Complete Order</Text>
         </TouchableOpacity>
       </View>
     );
