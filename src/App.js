@@ -9,6 +9,8 @@ import ViewSingleItem from './components/ViewSingleItem';
 import VendorMenuItem from './components/VendorMenuItem';
 import VendorViewSingleItem from './components/VendorViewSingleItem';
 import NewItemForm from './components/NewItemForm';
+import EditItemForm from './components/EditItemForm';
+
 
 export default class App extends Component {
   render() {
@@ -62,6 +64,12 @@ export default class App extends Component {
             key='newItem'
             component={NewItemForm}
             title="New Item Form"
+          />
+
+          <Scene
+            key='editItem'
+            component={EditItemForm}
+            title="Edit Item Form"
           />
 
       </Scene>

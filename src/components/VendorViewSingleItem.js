@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import { Actions } from 'react-native-router-flux';
 
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
@@ -38,9 +38,6 @@ export default class VendorViewSingleItem extends Component {
             <Text style={styles.description}>{this.props.description}</Text>
           </View>
         </View>
-        <TouchableOpacity onPress={this.editMenuItem}>
-          <Text style={styles.addButton}>Edit Menu Item</Text>
-        </TouchableOpacity>
       </View>
 
     );
