@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-export default class ViewSingleItem extends Component {
+export default class VendorViewSingleItem extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -21,36 +21,8 @@ export default class ViewSingleItem extends Component {
     };
   }
 
-  onAdd = () => {
-    if (this.props.menu.state.orderId == null) {
-      console.log("CREATE NEW ORDER")
-      this.props.menu.createNewOrder().then(() => {
-        this.addItemToOrder()
-      });
-    } else {
-      console.log("ADDING ITEM ORDER")
-      console.log(this.props.menu.state.orderId);
-      this.addItemToOrder()
-    }
-  }
+  addMenuItem = () => {
 
-  addItemToOrder = () => {
-    let newCartCount = this.props.menu.state.numInCart + 1;
-    this.props.menu.setState({numInCart: newCartCount});
-    console.log(this.props.menu.state.numInCart);
-    console.log(`https://capstone-backend-java-spark.herokuapp.com/order/${this.props.menu.state.orderId}`);
-    axios.post(`https://capstone-backend-java-spark.herokuapp.com/order/${this.props.menu.state.orderId}`,
-      { menu_item_id: this.props.menu_item_id ,
-        quantity: 1,
-      }).then((response) => {
-        console.log("GOOD addItemToOrder request");
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log("ERROR addItemToOrder request");
-        console.log(error);
-      }
-    );
   }
 
   render() {
@@ -62,11 +34,12 @@ export default class ViewSingleItem extends Component {
           <View style={styles.itemDetails}>
             <Text style={styles.name}>{this.props.itemName}</Text>
             <Text style={styles.price}>$ {this.props.price}</Text>
+            <Text style={styles.quantity}>Availability: {this.props.quantity}</Text>
             <Text style={styles.description}>{this.props.description}</Text>
           </View>
         </View>
-        <TouchableOpacity onPress={this.onAdd}>
-          <Text style={styles.addButton}>Add to Order</Text>
+        <TouchableOpacity onPress={this.editMenuItem}>
+          <Text style={styles.addButton}>Edit Menu Item</Text>
         </TouchableOpacity>
       </View>
 
@@ -78,7 +51,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-
   },
   item: {
     margin: 10,
@@ -103,7 +75,10 @@ const styles = StyleSheet.create({
   price: {
     textAlign: 'left',
     fontSize: 20,
-    marginBottom: 10,
+  },
+  quantity: {
+    textAlign: 'left',
+    fontSize: 20,
   },
   description: {
     fontSize: 16,

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-export default class MenuItem extends Component {
+
+export default class VendorMenuItem extends Component {
+
   static propTypes = {
     itemName: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
@@ -22,11 +24,12 @@ export default class MenuItem extends Component {
         <View style={styles.item}>
           <View style={styles.nameAndPrice}>
             <Text style={styles.name}>{this.props.itemName}</Text>
-            <Text style={styles.price}>${this.props.price}</Text>
+            <Text style={styles.quantity}>Availability: {this.props.quantity}</Text>
           </View>
-          <TouchableOpacity style={styles.pressableImage} onPress={() => Actions.viewSingleItem(this.props)}  >
+          <TouchableOpacity style={styles.pressableImage} onPress={() => Actions.vendorViewSingleItem(this.props)}  >
             <Image style={styles.image}  key={this.props.index} source={{uri: this.props.img}}/>
           </TouchableOpacity>
+
         </View>
       </View>
     );
@@ -42,22 +45,21 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   nameAndPrice: {
-    flexDirection: 'row',
+    flex: 1,
+    flexDirection: 'column',
     paddingVertical: 10,
     justifyContent: 'space-around',
+    marginBottom: 10,
   },
   name: {
-    flex: 1,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  price: {
-    flex: 1,
+  quantity: {
     textAlign: 'center',
     fontSize: 20,
   },
-
   image: {
     height: 100,
     width: 200,
