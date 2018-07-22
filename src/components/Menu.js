@@ -64,12 +64,13 @@ export default class Menu extends Component {
   }
 
   render() {
+    const goToCart = () => Actions.cart({orderId: this.state.orderId})
     return (
       <View style={styles.container}>
         <View style={styles.itemsContainer}>
           {this.renderMenuItems()}
         </View>
-        <TouchableOpacity onPress={Actions.cart}>
+        <TouchableOpacity onPress={goToCart}>
           <Text style={styles.button}>View Cart</Text>
         </TouchableOpacity>
       </View>

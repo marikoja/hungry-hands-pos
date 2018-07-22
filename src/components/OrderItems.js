@@ -21,7 +21,7 @@ export default class OrderItems extends Component {
         <View style={styles.item}>
           <View style={styles.details}>
             <Text style={styles.name}>{this.props.itemName}</Text>
-            <Text style={styles.quantity}>Quantity: {this.props.quantity}</Text>
+            <Text style={styles.quantity}>{this.props.price}</Text>
           </View>
           <TouchableOpacity onPress={this.submitOrder}>
             <Text style={styles.button}>Sumbit Your Order!</Text>

@@ -12,17 +12,21 @@ export default class Cart extends Component {
   }
 
   constructor(props) {
-    super(props);
+    super();
 
     this.state = {
       order: [],
+      orderId: props.orderId
     };
   }
 
   componentDidMount = () => {
-    axios.get('https://capstone-backend-java-spark.herokuapp.com/order')
+
+    axios.get(`https://capstone-backend-java-spark.herokuapp.com/order/${this.state.orderId}`)
       .then( (response) => {
         this.setState({order: response.data});
+        console.log("made it to the cart get request");
+        console.log(response.data);
     })
       .catch( (error) => {
         console.log(error);
@@ -31,6 +35,7 @@ export default class Cart extends Component {
 
   renderOrderItems = () => {
     let parent = this;
+    console.log(parent);
     const orderList = this.state.order.map((item, index) => {
       return (
         <OrderItems
@@ -39,6 +44,8 @@ export default class Cart extends Component {
           menu_item_id={item.menu_item_id}
           quantity={item.quantity}
           order_id={item.order_id}
+          itemName={item.name}
+          price={item.price}
           order={parent}
           />
       );
@@ -50,9 +57,8 @@ export default class Cart extends Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.itemsContainer}>
-          {this.renderOrdertems()}
+          {this.renderOrderItems()}
         </View>
         <TouchableOpacity onPress={() => Actions.customerMenu()}>
           <Text style={styles.button}>Complete Order</Text>
@@ -76,6 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    borderWidth: 2,
   },
   button: {
     marginVertical: 10,
