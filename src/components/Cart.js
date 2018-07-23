@@ -25,9 +25,21 @@ export default class Cart extends Component {
 
     axios.get(`https://capstone-backend-java-spark.herokuapp.com/order/${this.state.orderId}`)
       .then( (response) => {
-        this.setState({order: response.data});
+
+        let orderItems = response.data;
+        for (let a = 0; a < orderItems.length; a++) {
+          orderItems[a].count = 1;
+          for (let b = (a+1); b < orderItems.length; b++) {
+            if (orderItems[a].menu_item_id === orderItems[b].menu_item_id) {
+              orderItems[a].count++;
+              orderItems.splice(b,1);
+            }
+          }
+        }
+
+        this.setState({order: orderItems});
         console.log("made it to the cart get request");
-        console.log(response.data);
+        console.log(JSON.stringify(orderItems));
     })
       .catch( (error) => {
         console.log(error);
@@ -57,15 +69,12 @@ export default class Cart extends Component {
   render() {
 
     const orderSubmit = () => {
-        const url = `https://capstone-backend-java-spark.herokuapp.com/order/${this.state.orderId}`
-
-        const body = {
+        axios.put( `https://capstone-backend-java-spark.herokuapp.com/order/${this.state.orderId}`, {
           orderId: this.state.orderId,
           customer_id: this.state.customer_id,
           company_id: this.state.company_id,
-          status: 'PAID'}
-
-        axios.put( url, body).then((response) => {
+          status: 'PAID'})
+          .then((response) => {
             this.setState({order: response.data});
             console.log("made it to the cart put request");
             console.log(response.data);

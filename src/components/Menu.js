@@ -73,7 +73,7 @@ export default class Menu extends Component {
           {this.renderMenuItems()}
         </View>
         <TouchableOpacity onPress={goToCart}>
-          <Text style={styles.button}>View Cart</Text>
+          <Text style={styles.button}>View Cart 🛒 {this.state.numInCart}</Text>
         </TouchableOpacity>
       </View>
     );
