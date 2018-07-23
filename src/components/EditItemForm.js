@@ -26,13 +26,14 @@ export default class MyComponent extends Component {
   editMenuItem = () => {
     const url = `https://capstone-backend-java-spark.herokuapp.com/menu/${this.props.menu_id}/menu_item/${this.props.menu_item_id}`
 
-    const body = {itemName: this.state.itemName,
-    price: this.state.price,
-    description: this.state.description,
-    quantity: this.state.quantity,
-    img: this.state.img,
-    menu_id: this.state.menu_id,
-    menu_item_id: this.state.menu_item_id}
+    const body = {
+      itemName: this.state.itemName,
+      price: this.state.price,
+      description: this.state.description,
+      quantity: this.state.quantity,
+      img: this.state.img,
+      menu_id: this.state.menu_id,
+      menu_item_id: this.state.menu_item_id}
 
     // console.log( body );
     // console.log( url );
@@ -40,7 +41,7 @@ export default class MyComponent extends Component {
     axios.put( url, body).then((response) => {
         console.log("GOOD edit Menu Item request");
         // console.log(response);
-        Actions.vendorMenu()
+        Actions.vendorMenu();
       })
       .catch((error) => {
         console.log("ERROR edit Menu Item request");

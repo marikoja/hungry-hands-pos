@@ -22,6 +22,7 @@ export default class Menu extends Component {
   }
 
   componentDidMount = () => {
+    console.log(this.state.orderId);
     axios.get('https://capstone-backend-java-spark.herokuapp.com/menu')
       .then( (response) => {
         this.setState({menu: response.data});
@@ -64,7 +65,8 @@ export default class Menu extends Component {
   }
 
   render() {
-    const goToCart = () => Actions.cart({orderId: this.state.orderId})
+    const goToCart = () => Actions.cart({orderId: this.state.orderId, numInCart: this.state.numInCart})
+
     return (
       <View style={styles.container}>
         <View style={styles.itemsContainer}>

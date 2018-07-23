@@ -16,7 +16,8 @@ export default class Cart extends Component {
 
     this.state = {
       order: [],
-      orderId: props.orderId
+      orderId: props.orderId,
+      numInCart: props.numInCart
     };
   }
 
@@ -53,14 +54,38 @@ export default class Cart extends Component {
     return orderList;
   }
 
-
   render() {
+
+    const orderSubmit = () => {
+        const url = `https://capstone-backend-java-spark.herokuapp.com/order/${this.state.orderId}`
+
+        const body = {
+          orderId: this.state.orderId,
+          customer_id: this.state.customer_id,
+          company_id: this.state.company_id,
+          status: 'PAID'}
+
+        axios.put( url, body).then((response) => {
+            this.setState({order: response.data});
+            console.log("made it to the cart put request");
+            console.log(response.data);
+        })
+          .catch( (error) => {
+            console.log(error);
+        });
+
+        Actions.customerMenu();
+        this.setState({orderId: null});
+        this.setState({numInCart: null});
+
+      };
+
     return (
       <View style={styles.container}>
         <View style={styles.itemsContainer}>
           {this.renderOrderItems()}
         </View>
-        <TouchableOpacity onPress={() => Actions.customerMenu()}>
+        <TouchableOpacity onPress={orderSubmit}>
           <Text style={styles.button}>Complete Order</Text>
         </TouchableOpacity>
       </View>

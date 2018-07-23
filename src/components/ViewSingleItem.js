@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { Actions } from 'react-native-router-flux';
 
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
@@ -27,6 +28,8 @@ export default class ViewSingleItem extends Component {
       this.props.menu.createNewOrder().then(() => {
         this.addItemToOrder()
       });
+      () => Actions.customerMenu();
+
     } else {
       console.log("ADDING ITEM ORDER")
       console.log(this.props.menu.state.orderId);
