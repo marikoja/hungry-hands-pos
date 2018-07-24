@@ -11,6 +11,7 @@ import VendorViewSingleItem from './components/VendorViewSingleItem';
 import NewItemForm from './components/NewItemForm';
 import EditItemForm from './components/EditItemForm';
 import Cart from './components/Cart';
+import OrderQueue from './components/OrderQueue';
 
 export default class App extends Component {
   render() {
@@ -76,6 +77,12 @@ export default class App extends Component {
             key='cart'
             component={Cart}
             title="Your cart"
+          />
+
+          <Scene
+            key='orderQueue'
+            component={OrderQueue}
+            title="Order Queue"
           />
 
       </Scene>

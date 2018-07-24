@@ -50,7 +50,6 @@ export default class VendorMenu extends Component {
     return menuList;
   }
 
-
   render() {
     return (
       <View style={styles.container}>
@@ -61,6 +60,10 @@ export default class VendorMenu extends Component {
         <TouchableOpacity onPress={() => Actions.newItem()}>
           <Text style={styles.button}>Add Item to Menu</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => Actions.orderQueue()}>
+          <Text style={styles.button}>Order Queue</Text>
+        </TouchableOpacity>
+
       </View>
     );
   }

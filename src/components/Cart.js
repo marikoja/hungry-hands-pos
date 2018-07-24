@@ -25,7 +25,6 @@ export default class Cart extends Component {
 
     axios.get(`https://capstone-backend-java-spark.herokuapp.com/order/${this.state.orderId}`)
       .then( (response) => {
-
         let orderItems = response.data;
         for (let a = 0; a < orderItems.length; a++) {
           orderItems[a].count = 1;
@@ -55,11 +54,12 @@ export default class Cart extends Component {
           key={index}
           order_menu_id={item.order_menu_id}
           menu_item_id={item.menu_item_id}
-          quantity={item.quantity}
+          count={item.quantity}
           order_id={item.order_id}
           itemName={item.name}
           price={item.price}
           order={parent}
+          count={item.count}
           />
       );
     });
