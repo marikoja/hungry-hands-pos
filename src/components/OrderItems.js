@@ -21,7 +21,8 @@ export default class OrderItems extends Component {
         <View style={styles.item}>
           <View style={styles.details}>
             <Text style={styles.name}>{this.props.itemName}</Text>
-            <Text style={styles.quantity}>{this.props.price}</Text>
+              <Text style={styles.quantity}>{this.props.price}</Text>
+              <Text style={styles.quantity}>{this.props.count}</Text>
           </View>
         </View>
       </View>
