@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
@@ -62,31 +62,12 @@ export default class Cart extends Component {
 
   render() {
 
-    const takeOrder = () => {
-        axios.put( `https://capstone-backend-java-spark.herokuapp.com/order/${this.state.orderId}`, {
-          orderId: this.state.orderId,
-          customer_id: this.state.customer_id,
-          company_id: this.state.company_id,
-          status: 'PREP'})
-          .then((response) => {
-            this.setState({order: response.data});
-            console.log("ORDER BEING PREPARED");
-            console.log(response.data);
-        })
-          .catch( (error) => {
-            console.log(error);
-        });
-
-      };
-
     return (
       <View style={styles.container}>
         <View style={styles.itemsContainer}>
           {this.renderOrderItems()}
         </View>
-        <TouchableOpacity onPress={takeOrder}>
-          <Text style={styles.button}>Prepare Order</Text>
-        </TouchableOpacity>
+
       </View>
     );
   }
@@ -106,7 +87,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    borderWidth: 2,
   },
   button: {
     marginVertical: 10,

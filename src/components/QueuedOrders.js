@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import axios from 'axios';
 
 export default class QueueItems extends Component {
 
@@ -31,11 +32,27 @@ export default class QueueItems extends Component {
     };
   }
 
+  completeOrder = () => {
+      axios.put( `https://capstone-backend-java-spark.herokuapp.com/order/${this.props.order_id}`, {
+        status: 'COMPLETE'})
+        .then((response) => {
+          console.log("ORDER COMPLETED");
+          console.log(response.data);
+      })
+        .catch( (error) => {
+          console.log(`order_id: ${this.props.order_id}`);
+
+          console.log(error);
+
+      });
+
+    };
+
   render() {
     console.log(this.state.order);
     const menuItems = this.state.order.map((item, index) => {
       return (
-        <Text>{item.count} x {item.name}</Text>
+        <Text style={styles.text}>{item.count} x {item.name}</Text>
       )
     })
 
@@ -47,6 +64,9 @@ export default class QueueItems extends Component {
           <View style={styles.items}>
             { menuItems }
           </View>
+          <TouchableOpacity onPress={this.completeOrder}>
+            <Text style={styles.button}>COMPLETE</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -59,6 +79,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderWidth: 2,
+    borderRadius: 15,
 
   },
   orderDetails: {
@@ -74,7 +95,15 @@ const styles = StyleSheet.create({
   status: {
     fontSize: 20,
   },
-  items: {
-
+  text: {
+    fontSize: 20,
+  },
+  button: {
+    marginTop: 5,
+    fontSize: 16,
+    padding: 5,
+    borderWidth: 1,
+    borderRadius: 15,
+    textAlign: 'center',
   }
 });
