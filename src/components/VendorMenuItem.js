@@ -38,14 +38,14 @@ export default class VendorMenuItem extends Component {
 
 const styles = StyleSheet.create({
 
-  item: {
-    flex: 1,
+  container: {
+    // flex: 1,
     width: 200,
     padding: 10,
     margin: 10,
   },
   nameAndPrice: {
-    flex: 1,
+    // flex: 1,
     flexDirection: 'column',
     paddingVertical: 10,
     justifyContent: 'space-around',
@@ -67,14 +67,5 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderWidth: 2,
   },
-
-  addButton: {
-    marginTop: 10,
-    fontSize: 20,
-    padding: 5,
-    borderWidth: 1,
-    borderRadius: 15,
-    textAlign: 'center',
-  }
 
 });

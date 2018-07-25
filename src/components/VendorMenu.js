@@ -54,15 +54,18 @@ export default class VendorMenu extends Component {
     return (
       <View style={styles.container}>
 
+        <View style={styles.buttons}>
+          <TouchableOpacity onPress={() => Actions.orderQueue()}>
+            <Text style={styles.button}>Order Queue</Text>
+          </TouchableOpacity>
+            <TouchableOpacity onPress={() => Actions.newItem()}>
+            <Text style={styles.button}>Add Item to Menu</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.itemsContainer}>
           {this.renderVendorMenuItems()}
         </View>
-        <TouchableOpacity onPress={() => Actions.newItem()}>
-          <Text style={styles.button}>Add Item to Menu</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Actions.orderQueue()}>
-          <Text style={styles.button}>Order Queue</Text>
-        </TouchableOpacity>
 
       </View>
     );
@@ -71,22 +74,29 @@ export default class VendorMenu extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#fff',
-    width: '100%',
-    height: '100%',
-    margin: 10,
-    padding: 30,
+    // flexWrap: 'wrap',
+    // flex: 1,
+    // backgroundColor: '#fff',
+    // // width: '100%',
+    // // height: '100%',
+    // margin: 10,
+    // padding: 30,
   },
-    itemsContainer: {
-    flex: 1,
+  itemsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    // height: 800,
+    // width: 600,
+
+  },
+  buttons: {
+    // flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   },
   button: {
     marginVertical: 10,
-    marginHorizontal: 30,
+    // marginHorizontal: 30,
     fontSize: 20,
     padding: 5,
     borderWidth: 1,

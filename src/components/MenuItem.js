@@ -6,7 +6,6 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 export default class MenuItem extends Component {
   static propTypes = {
     itemName: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
     menu: PropTypes.object.isRequired,
   };
 
@@ -35,8 +34,8 @@ export default class MenuItem extends Component {
 
 const styles = StyleSheet.create({
 
+
   item: {
-    flex: 1,
     width: 200,
     padding: 10,
     margin: 10,

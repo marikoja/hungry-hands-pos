@@ -31,6 +31,7 @@ export default class MyComponent extends Component {
     //   quantity: this.state.quantity,
     //   img: this.state.img,
     // }));
+    // console.log(`http://localhost:4567/menu/${this.state.menu_id}/menu_item`);
     axios.post(`https://capstone-backend-java-spark.herokuapp.com/menu/${this.state.menu_id}/menu_item`,
       { itemName: this.state.itemName ,
         price: this.state.price,
@@ -75,7 +76,7 @@ export default class MyComponent extends Component {
           />
 
          <TextInput
-           onChangeText={ (text)=> this.setState({quantity: text}) }
+           onChangeText={ (text)=> this.setState({quantity: text.toString()}) }
            style={styles.input}
            placeholder="Quantity Available"
            defaultValue={50}

@@ -9,7 +9,8 @@ export default class Welcome extends Component {
   render() {
     return (
       <View style={styles.welcomeContainer}>
-        <Text style={styles.header}>Welcome</Text>
+        <Text style={styles.header}>Hungry Hands</Text>
+        <Text style={styles.subHeader}>An Interactive POS</Text>
 
         <View style={styles.icons}>
           <Image
@@ -30,14 +31,14 @@ export default class Welcome extends Component {
             style={styles.button}
             onPress={() => Actions.customerMenu()}
           >
-            Link to Customer Menu
+            Customer Menu
           </Text>
 
           <Text
             style={styles.button}
             onPress={() => Actions.vendorMenu()}
           >
-            Link to Vendor Menu
+          Vendor Menu
           </Text>
         </View>
       </View>
@@ -49,10 +50,17 @@ const styles = StyleSheet.create({
   welcomeContainer: {
     marginTop: 50,
     flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   header: {
     textAlign: 'center',
+    fontSize: 80,
+    fontWeight: '100',
+  },
+  subHeader: {
+    textAlign: 'center',
     fontSize: 30,
+    fontWeight: '100',
   },
   icons: {
     flexDirection: 'row',
@@ -60,7 +68,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     height: 100,
-    marginVertical: 50,
+    marginVertical: 100,
   },
   buttons:{
     flexDirection: 'row',
@@ -70,5 +78,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 10,
     borderRadius: 15,
+    fontWeight: '100',
+    fontSize: 30.
   },
 });

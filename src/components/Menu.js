@@ -90,9 +90,9 @@ const styles = StyleSheet.create({
     padding: 30,
   },
   itemsContainer: {
-    flex: 1,
+    // flex: 1,
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    // flexWrap: 'wrap',
   },
 
 });

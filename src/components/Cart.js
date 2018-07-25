@@ -22,7 +22,6 @@ export default class Cart extends Component {
   }
 
   componentDidMount = () => {
-
     axios.get(`https://capstone-backend-java-spark.herokuapp.com/order/${this.state.orderId}`)
       .then( (response) => {
         let orderItems = response.data;
@@ -35,7 +34,6 @@ export default class Cart extends Component {
             }
           }
         }
-
         this.setState({order: orderItems});
         console.log("made it to the cart get request");
         console.log(JSON.stringify(orderItems));
