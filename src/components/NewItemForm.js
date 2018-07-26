@@ -25,7 +25,6 @@ export default class MyComponent extends Component {
   }
 
   addNewMenuItem = () => {
-    Actions.pop();
 
     axios.post(`https://capstone-backend-java-spark.herokuapp.com/menu/${this.state.menu_id}/menu_item`,
       { itemName: this.state.itemName ,

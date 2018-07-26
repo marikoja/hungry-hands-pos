@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import VendorMenu from './VendorMenu';
-import Menu from './Menu';
 
 export default class Welcome extends Component {
 
@@ -10,7 +8,7 @@ export default class Welcome extends Component {
     return (
       <View style={styles.welcomeContainer}>
         <Text style={styles.header}>Hungry Hands</Text>
-        <Text style={styles.subHeader}>An Interactive POS</Text>
+        <Text style={styles.subHeader}>An Interactive POS for Food Trucks</Text>
 
         <View style={styles.icons}>
           <Image
