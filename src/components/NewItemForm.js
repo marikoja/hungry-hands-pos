@@ -86,7 +86,7 @@ export default class MyComponent extends Component {
             onChangeText={ (text)=> this.setState({img: text}) }
             style={styles.input}
             placeholder="Image url"
-            defaultValue="https://i.imgur.com/klr1Rys.jpg"
+            defaultValue="https://i.imgur.com/BVtN2Ws.jpg"
           />
 
          <TouchableOpacity onPress={this.addNewMenuItem}>
