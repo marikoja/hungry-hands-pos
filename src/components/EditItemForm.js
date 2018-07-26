@@ -24,6 +24,7 @@ export default class MyComponent extends Component {
   }
 
   editMenuItem = () => {
+    Actions.pop();
     const url = `https://capstone-backend-java-spark.herokuapp.com/menu/${this.props.menu_id}/menu_item/${this.props.menu_item_id}`
 
     const body = {

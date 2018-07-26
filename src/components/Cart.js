@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import axios from 'axios';
+
 import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
 import OrderItems from './OrderItems'
@@ -80,10 +81,9 @@ export default class Cart extends Component {
           .catch( (error) => {
             console.log(error);
         });
-
-        Actions.customerMenu();
         this.setState({orderId: null});
         this.setState({numInCart: null});
+        Actions.customerMenu();
 
       };
 

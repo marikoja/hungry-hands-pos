@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Router, Scene, StyleSheet } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 import Welcome from './components/Welcome';
 import VendorMenu from './components/VendorMenu';
@@ -14,6 +15,8 @@ import Cart from './components/Cart';
 import OrderQueue from './components/OrderQueue';
 
 export default class App extends Component {
+
+
   render() {
     return (
       <Router>
@@ -32,6 +35,7 @@ export default class App extends Component {
             key='customerMenu'
             component={Menu}
             title="Customer Menu"
+            onBack={() => Actions.welcome()}
           />
 
           <Scene
@@ -44,6 +48,7 @@ export default class App extends Component {
             key='vendorMenu'
             component={VendorMenu}
             title="Vendor Menu"
+            onBack={() => Actions.welcome()}
           />
 
           <Scene

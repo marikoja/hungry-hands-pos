@@ -64,8 +64,11 @@ export default class Menu extends Component {
     return menuList;
   }
 
+
+
   render() {
-    const goToCart = () => Actions.cart({orderId: this.state.orderId, numInCart: this.state.numInCart})
+    const goToCart = () =>
+    Actions.cart({orderId: this.state.orderId, numInCart: this.state.numInCart})
 
     return (
       <View style={styles.container}>
@@ -94,10 +97,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around'
-    
+
   },
   button: {
-    fontSize: 30,
+    fontSize: 40,
     fontWeight: '200',
     textAlign: 'center',
   }

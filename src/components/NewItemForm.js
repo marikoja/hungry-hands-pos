@@ -25,13 +25,8 @@ export default class MyComponent extends Component {
   }
 
   addNewMenuItem = () => {
-    // console.log(JSON.stringify({ name: this.state.name ,
-    //   price: this.state.price,
-    //   description: this.state.description,
-    //   quantity: this.state.quantity,
-    //   img: this.state.img,
-    // }));
-    // console.log(`http://localhost:4567/menu/${this.state.menu_id}/menu_item`);
+    Actions.pop();
+
     axios.post(`https://capstone-backend-java-spark.herokuapp.com/menu/${this.state.menu_id}/menu_item`,
       { itemName: this.state.itemName ,
         price: this.state.price,
