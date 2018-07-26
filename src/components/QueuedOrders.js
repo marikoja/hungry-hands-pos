@@ -7,6 +7,10 @@ import { Actions } from 'react-native-router-flux';
 export default class QueueItems extends Component {
 
   static propTypes = {
+    order: PropTypes.array.isRequired
+  }
+
+  static propTypes = {
     order_id: PropTypes.number.isRequired,
     status: PropTypes.string.isRequired,
 
@@ -55,7 +59,7 @@ export default class QueueItems extends Component {
     console.log(this.state.order);
     const menuItems = this.state.order.map((item, index) => {
       return (
-        <Text style={styles.text}>{item.count} x {item.name}</Text>
+        <Text key={index} style={styles.text}>{item.count} x {item.name}</Text>
       )
     })
 
@@ -103,7 +107,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 5,
-    fontSize: 16,
+    fontSize: 20,
     padding: 5,
     borderWidth: 1,
     borderRadius: 15,

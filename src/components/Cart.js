@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import axios from 'axios';
-
 import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
 import OrderItems from './OrderItems'
 
 export default class Cart extends Component {
   static propTypes = {
-    // items: PropTypes.array.isRequired,
-    // onItemPress: PropTypes.func.isRequired,
+    numInCart: PropTypes.number,
+    orderId: PropTypes.number,
   }
 
   constructor(props) {
@@ -53,13 +52,13 @@ export default class Cart extends Component {
           key={index}
           order_menu_id={item.order_menu_id}
           menu_item_id={item.menu_item_id}
-          count={item.quantity}
+          quantity={item.quantity}
           order_id={item.order_id}
           itemName={item.name}
           price={item.price}
           order={parent}
           count={item.count}
-          />
+        />
       );
     });
     return orderList;
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
   button: {
     marginVertical: 10,
     marginHorizontal: 30,
-    fontSize: 20,
+    fontSize: 30,
     padding: 5,
     borderWidth: .5,
     borderRadius: 15,

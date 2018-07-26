@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Actions } from 'react-native-router-flux';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default class OrderItems extends Component {
 
   static propTypes = {
-
+    count: PropTypes.number,
+    price: PropTypes.number
   };
 
   constructor(props) {
@@ -23,29 +23,25 @@ export default class OrderItems extends Component {
     let itemTotal = this.state.count * this.state.price
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{this.props.count} x   {this.props.itemName} $ {parseFloat(itemTotal).toFixed(2)}</Text>
+        <Text style={styles.text}>
+          {this.props.count} x   {this.props.itemName} $ {parseFloat(itemTotal).toFixed(2)}
+        </Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '30%',
     padding: 10,
     margin: 10,
   },
-
   text: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: '200',
     textAlign: 'center',
     height: 40,
-    flexWrap: 'wrap',
   },
-
-
 });

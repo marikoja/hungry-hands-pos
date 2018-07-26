@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     fontSize: 20,
     textAlign: 'center',
+    fontWeight: '200',
     justifyContent: 'center'
   },
   button: {
@@ -122,6 +123,7 @@ const styles = StyleSheet.create({
     padding: 5,
     borderWidth: 1,
     borderRadius: 15,
+    fontWeight: '200',
     textAlign: 'center',
   }
 });

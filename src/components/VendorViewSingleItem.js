@@ -63,9 +63,8 @@ const styles = StyleSheet.create({
   image: {
     height: 200,
     width: 400,
-    borderRadius: 15,
+    borderRadius: 25,
     marginBottom: 10,
-    borderWidth: 2,
   },
   name: {
     fontSize: 40,
@@ -84,9 +83,10 @@ const styles = StyleSheet.create({
   },
   description: {
     fontWeight: '200',
-    fontSize: 16,
+    fontSize: 20,
   },
   addButton: {
+    fontWeight: '200',
     marginVertical: 10,
     marginHorizontal: 30,
     fontSize: 20,

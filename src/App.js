@@ -21,7 +21,7 @@ export default class App extends Component {
     return (
       <Router>
         <Scene key='root'
-          titleStyle={{fontWeight: '100'}}
+          titleStyle={{fontWeight: '100', fontSize: 30}}
           backButtonTextStyle={{color: 'black'}}
           >
 

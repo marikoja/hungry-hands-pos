@@ -8,8 +8,8 @@ export default class VendorMenuItem extends Component {
 
   static propTypes = {
     itemName: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
     menu: PropTypes.object.isRequired,
+    img: PropTypes.string.isRequired
   };
 
   constructor(props) {
@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   nameAndQuantity: {
-    // flex: 1,
     flexDirection: 'column',
     paddingVertical: 10,
     justifyContent: 'space-around',
@@ -64,9 +63,9 @@ const styles = StyleSheet.create({
   image: {
     height: 100,
     width: 200,
-    borderRadius: 15,
+    borderRadius: 25,
     marginBottom: 10,
-    borderWidth: 2,
+    // borderWidth: 2,
   },
 
 });

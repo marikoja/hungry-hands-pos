@@ -6,13 +6,9 @@ import { Actions } from 'react-native-router-flux';
 import QueuedOrders from './QueuedOrders'
 
 export default class Cart extends Component {
-  static propTypes = {
-    // items: PropTypes.array.isRequired,
-    // onItemPress: PropTypes.func.isRequired,
-  }
 
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       order: [],
@@ -33,8 +29,6 @@ export default class Cart extends Component {
           orderHash[itemList[i].order_id].push(itemList[i]);
         }
 
-        console.log(JSON.stringify(orderHash));
-
         this.setState({order: orderHash});
     })
       .catch( (error) => {
@@ -43,8 +37,8 @@ export default class Cart extends Component {
   }
 
   renderOrderItems = () => {
-    let parent = this;
     let orderList = [];
+    console.log("Hey hey hey");
     Object.keys(this.state.order).forEach((order_id) => {
       let item = this.state.order[order_id];
       orderList.push(

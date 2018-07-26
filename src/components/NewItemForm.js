@@ -16,21 +16,26 @@ export default class MyComponent extends Component {
 
       this.state = {
         itemName: '',
-        price: '',
+        price: '10.50',
         description: '',
-        quantity: '',
+        quantity: '50',
         img: 'https://i.imgur.com/eTuCPxM.jpg',
         menu_id: 1,
       };
   }
 
   addNewMenuItem = () => {
-
+    console.log({ itemName: this.state.itemName ,
+      price: this.state.price,
+      description: this.state.description,
+      quantity: this.state.quantity,
+      img: this.state.img,
+    });
     axios.post(`https://capstone-backend-java-spark.herokuapp.com/menu/${this.state.menu_id}/menu_item`,
       { itemName: this.state.itemName ,
         price: this.state.price,
         description: this.state.description,
-        quantity: this.state.quantity,
+        quantity: parseInt(this.state.quantity),
         img: this.state.img,
       }).then((response) => {
         console.log("GOOD add Menu Item to Menu request");
@@ -59,7 +64,7 @@ export default class MyComponent extends Component {
            onChangeText={ (text)=> this.setState({price: text.toString()}) }
            style={styles.input}
            placeholder="Price: $"
-           defaultValue={10}
+           defaultValue={'10'}
            keyboardType='numeric'>
          </TextInput>
 
@@ -70,10 +75,10 @@ export default class MyComponent extends Component {
           />
 
          <TextInput
-           onChangeText={ (text)=> this.setState({quantity: text.toString()}) }
+           onChangeText={ (text)=> this.setState({quantity: text}) }
            style={styles.input}
            placeholder="Quantity Available"
-           defaultValue={50}
+           defaultValue={'50'}
            keyboardType='numeric'>
          </TextInput>
 
@@ -81,7 +86,7 @@ export default class MyComponent extends Component {
             onChangeText={ (text)=> this.setState({img: text}) }
             style={styles.input}
             placeholder="Image url"
-            defaultValue="https://i.imgur.com/eTuCPxM.jpg"
+            defaultValue="https://i.imgur.com/klr1Rys.jpg"
           />
 
          <TouchableOpacity onPress={this.addNewMenuItem}>
