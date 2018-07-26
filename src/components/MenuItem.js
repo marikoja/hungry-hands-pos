@@ -49,6 +49,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '200',
     textAlign: 'center',
+    flex: 1,
+    flexWrap: 'wrap',
+
   },
   price: {
     textAlign: 'center',

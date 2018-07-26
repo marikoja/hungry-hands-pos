@@ -15,14 +15,15 @@ export default class OrderItems extends Component {
     this.state = {
       count: props.count,
       price: props.price,
+      itemTotal: this.itemTotal
     };
   }
 
   render() {
-
+    let itemTotal = this.state.count * this.state.price
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{this.props.count} x   {this.props.itemName}  ${this.props.price}</Text>
+        <Text style={styles.text}>{this.props.count} x   {this.props.itemName} $ {parseFloat(itemTotal).toFixed(2)}</Text>
       </View>
     );
   }
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
     fontWeight: '200',
     textAlign: 'center',
     height: 40,
+    flexWrap: 'wrap',
   },
 
 
