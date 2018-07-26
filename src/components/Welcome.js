@@ -55,12 +55,13 @@ const styles = StyleSheet.create({
   header: {
     textAlign: 'center',
     fontSize: 80,
-    fontWeight: '100',
+    fontWeight: '200',
   },
   subHeader: {
     textAlign: 'center',
     fontSize: 30,
-    fontWeight: '100',
+    fontWeight: '200',
+    marginTop: 30,
   },
   icons: {
     flexDirection: 'row',
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 10,
     borderRadius: 15,
-    fontWeight: '100',
+    fontWeight: '200',
     fontSize: 30.
   },
 });

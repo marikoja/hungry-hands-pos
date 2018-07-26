@@ -100,16 +100,20 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '200',
     textAlign: 'left',
   },
   price: {
     textAlign: 'left',
     fontSize: 20,
     marginBottom: 10,
+    fontWeight: '200',
+
   },
   description: {
     fontSize: 16,
+    fontWeight: '200',
+
   },
   addButton: {
     marginVertical: 10,
@@ -119,6 +123,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 15,
     textAlign: 'center',
+    fontWeight: '200',
+
   }
 
 });

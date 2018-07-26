@@ -68,19 +68,22 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   name: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 40,
+    fontWeight: '200',
     textAlign: 'left',
   },
   price: {
     textAlign: 'left',
+    fontWeight: '200',
     fontSize: 20,
   },
   quantity: {
     textAlign: 'left',
+    fontWeight: '200',
     fontSize: 20,
   },
   description: {
+    fontWeight: '200',
     fontSize: 16,
   },
   addButton: {

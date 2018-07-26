@@ -35,7 +35,7 @@ export default class MenuItem extends Component {
 const styles = StyleSheet.create({
 
 
-  item: {
+  container: {
     width: 200,
     padding: 10,
     margin: 10,
@@ -46,14 +46,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   name: {
-    flex: 1,
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '200',
     textAlign: 'center',
   },
   price: {
-    flex: 1,
     textAlign: 'center',
+    fontWeight: '200',
     fontSize: 20,
   },
 

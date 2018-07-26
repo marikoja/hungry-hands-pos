@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
+import { Actions } from 'react-native-router-flux';
 
 export default class QueueItems extends Component {
 
@@ -33,18 +34,20 @@ export default class QueueItems extends Component {
   }
 
   completeOrder = () => {
-      axios.put( `https://capstone-backend-java-spark.herokuapp.com/order/${this.props.order_id}`, {
-        status: 'COMPLETE'})
-        .then((response) => {
-          console.log("ORDER COMPLETED");
-          console.log(response.data);
-      })
-        .catch( (error) => {
-          console.log(`order_id: ${this.props.order_id}`);
+    Actions.refresh({key: Math.random()})
 
-          console.log(error);
+    axios.put( `https://capstone-backend-java-spark.herokuapp.com/order/${this.props.order_id}`, {
+      status: 'COMPLETE'})
+      .then((response) => {
+        console.log("ORDER COMPLETED");
+        console.log(response.data);
+    })
+      .catch( (error) => {
+        console.log(`order_id: ${this.props.order_id}`);
 
-      });
+        console.log(error);
+
+    });
 
     };
 
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
   },
   id: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '200',
   },
   status: {
     fontSize: 20,

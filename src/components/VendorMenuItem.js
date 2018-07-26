@@ -22,7 +22,7 @@ export default class VendorMenuItem extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.item}>
-          <View style={styles.nameAndPrice}>
+          <View style={styles.nameAndQuantity}>
             <Text style={styles.name}>{this.props.itemName}</Text>
             <Text style={styles.quantity}>Availability: {this.props.quantity}</Text>
           </View>
@@ -44,20 +44,21 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
   },
-  nameAndPrice: {
+  nameAndQuantity: {
     // flex: 1,
     flexDirection: 'column',
     paddingVertical: 10,
     justifyContent: 'space-around',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   name: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '200',
+    fontSize: 30,
     textAlign: 'center',
   },
   quantity: {
     textAlign: 'center',
+    fontWeight: '200',
     fontSize: 20,
   },
   image: {

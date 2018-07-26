@@ -80,13 +80,12 @@ const styles = StyleSheet.create({
     // // width: '100%',
     // // height: '100%',
     // margin: 10,
-    // padding: 30,
+    padding: 30,
   },
   itemsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    // height: 800,
-    // width: 600,
+    justifyContent: 'space-around'
 
   },
   buttons: {
@@ -96,8 +95,8 @@ const styles = StyleSheet.create({
   },
   button: {
     marginVertical: 10,
-    // marginHorizontal: 30,
-    fontSize: 20,
+    fontWeight: '200',
+    fontSize: 30,
     padding: 5,
     borderWidth: 1,
     borderRadius: 15,

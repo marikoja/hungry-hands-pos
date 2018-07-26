@@ -69,12 +69,12 @@ export default class Menu extends Component {
 
     return (
       <View style={styles.container}>
+        <TouchableOpacity onPress={goToCart}>
+          <Text style={styles.button}>🛒 {this.state.numInCart} 🛒</Text>
+        </TouchableOpacity>
         <View style={styles.itemsContainer}>
           {this.renderMenuItems()}
         </View>
-        <TouchableOpacity onPress={goToCart}>
-          <Text style={styles.button}>View Cart 🛒 {this.state.numInCart}</Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -82,17 +82,23 @@ export default class Menu extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    width: '100%',
-    height: '100%',
-    margin: 10,
+    // flex: 1,
+    // backgroundColor: '#fff',
+    // width: '100%',
+    // height: '100%',
+    // margin: 10,
     padding: 30,
   },
   itemsContainer: {
     // flex: 1,
     flexDirection: 'row',
-    // flexWrap: 'wrap',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around'
+    
   },
-
+  button: {
+    fontSize: 30,
+    fontWeight: '200',
+    textAlign: 'center',
+  }
 });

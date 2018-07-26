@@ -65,8 +65,8 @@ export default class MyComponent extends Component {
          <TextInput
            onChangeText={ (text)=> this.setState({price: text}) }
            style={styles.input}
-           placeholder="Price: $"
-           defaultValue={`$${this.state.price}`}
+           placeholder="Price in Dollars: "
+           defaultValue={`${this.state.price}`}
            keyboardType='numeric'>
          </TextInput>
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Router, Scene } from 'react-native-router-flux';
+import { Router, Scene, StyleSheet } from 'react-native-router-flux';
 
 import Welcome from './components/Welcome';
 import VendorMenu from './components/VendorMenu';
@@ -17,7 +17,10 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <Scene key='root'>
+        <Scene key='root'
+          titleStyle={{fontWeight: '100'}}
+          backButtonTextStyle={{color: 'black'}}
+          >
 
           <Scene
             key='welcome'

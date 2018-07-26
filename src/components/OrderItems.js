@@ -12,19 +12,17 @@ export default class OrderItems extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      count: props.count,
+      price: props.price,
+    };
   }
 
   render() {
+
     return (
       <View style={styles.container}>
-        <View style={styles.item}>
-          <View style={styles.details}>
-            <Text style={styles.name}>{this.props.itemName}</Text>
-              <Text style={styles.quantity}>{this.props.price}</Text>
-              <Text style={styles.quantity}>{this.props.count}</Text>
-          </View>
-        </View>
+        <Text style={styles.text}>{this.props.count} x   {this.props.itemName}  ${this.props.price}</Text>
       </View>
     );
   }
@@ -32,36 +30,20 @@ export default class OrderItems extends Component {
 
 const styles = StyleSheet.create({
 
-  item: {
-    flex: 1,
-    width: 200,
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '30%',
     padding: 10,
     margin: 10,
   },
-  details: {
-    flex: 1,
-    flexDirection: 'column',
-    paddingVertical: 10,
-    justifyContent: 'space-around',
-    marginBottom: 10,
-  },
-  name: {
+
+  text: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '200',
     textAlign: 'center',
-  },
-  quantity: {
-    textAlign: 'center',
-    fontSize: 20,
+    height: 40,
   },
 
-  button: {
-    marginTop: 10,
-    fontSize: 20,
-    padding: 5,
-    borderWidth: 1,
-    borderRadius: 15,
-    textAlign: 'center',
-  }
 
 });
